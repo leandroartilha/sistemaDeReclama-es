@@ -1,0 +1,36 @@
+﻿@model IEnumerable<NovoRad.Models.Conclusao>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Conclusão</h1>
+
+<table class="styled-table w-100">
+    <thead class="styled-table-thead">
+        <tr>
+            <th>Resultado</th>
+            <th>Texto Justificativo</th>
+            <th>Consultivo Jurídico</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Resultado.NomeResultado)</td>
+            <td>@Html.DisplayFor(modelItem => item.TextoJustificativo)</td>
+            <td>@Html.DisplayFor(modelItem => item.ConsultivoJuridico)</td>
+            <td>
+                <a class="btn btn-icon text-primary" asp-controller="Conclusao" asp-action="Edit" asp-route-id="@item.ConclusaoId" asp-route-ocorrenciaId="@item.OcorrenciaId">
+                    <i class="fa fa-file-signature">Editar</i>
+                </a>
+                <a class="btn text-danger" asp-controller="Conclusao" asp-action="Delete" asp-route-id="@item.ConclusaoId">
+                    <i class="fas fa-trash">Apagar</i>
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

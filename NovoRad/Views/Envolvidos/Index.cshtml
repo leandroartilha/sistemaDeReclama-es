@@ -1,0 +1,39 @@
+﻿@model IEnumerable<NovoRad.Models.Envolvido>
+
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Envolvido</h5>
+            <p class="card-text">Nome: @Html.DisplayFor(modelItem => item.Nome)</p>
+            <p class="card-text">CPF/CNPJ: @Html.DisplayFor(modelItem => item.CPF_CNPJ)</p>
+            <p class="card-text">Data Nascimento: @Html.DisplayFor(modelItem => item.DataNascimento)</p>
+            <p class="card-text">Tipo Envolvimento: @Html.DisplayFor(modelItem => item.TipoEnvolvimento.NomeTipoEnvolvimento)</p>
+            <p class="card-text">Nome Pai: @Html.DisplayFor(modelItem => item.NomePai)</p>
+            <p class="card-text">Nome Mãe: @Html.DisplayFor(modelItem => item.NomeMae)</p>
+            <td>
+                <a class="btn btn-icon text-primary" asp-controller="Envolvidos" asp-action="Edit" asp-route-id="@item.EnvolvidoId" asp-route-ocorrenciaId="@item.OcorrenciaId">
+                    <i class="fa fa-file-signature">Editar</i>
+                </a>
+
+            </td>
+        </div>
+    </div>
+
+    @*@if (Model.Envolvido != null)
+        {
+            await Html.RenderPartialAsync("~/Views/Endereco/Index.cshtml", Model.Endereco);
+        }
+        else
+        {
+            <p>Nenhum envolvido cadastrado!</p>
+        }*@
+}
+@*<button class="bttn-unite bttn-sm bttn-primary mt-4" onclick="location.href='@(Url.Action("Create", "Endereco", new { envolvidoId = Model.))'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+    </svg>
+</button>*@
+

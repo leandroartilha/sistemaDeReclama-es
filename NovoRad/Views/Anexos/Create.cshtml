@@ -1,0 +1,40 @@
+﻿@model NovoRad.Models.Anexo
+
+@{
+    ViewData["Title"] = "Novo Anexo";
+}
+
+<h4>Nova Evidência</h4>
+
+<hr />
+
+<form asp-action="Create" asp-route-ocorrenciaId="@ViewBag.OcorrenciaId" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label class="control-label">Anexar documento:</label>
+                <input type="file" name="postedFile" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="TipoAnexoUploadId" class="control-label">Tipo Anexo:</label>
+            <select asp-for="TipoAnexoUploadId" type="text" class="form-control" asp-items="ViewBag.TipoAnexoId"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="DescricaoAnexo" class="control-label">Descrição:</label>
+            <input asp-for="DescricaoAnexo" type="text" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Gravar</button>
+</form>
+
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/fstdropdown.min.js"></script>
+}*@

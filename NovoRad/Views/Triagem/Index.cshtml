@@ -1,0 +1,76 @@
+﻿@model TriagemViewModel
+
+<section>
+    <div class="row">
+        <div class="col-12 mt-3 mb-1">
+            <h4>Fila de Triagem</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <button onclick="location.href='/'" type="button" class="btn btn-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+            </svg> Voltar ao Início
+        </button>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label class="control-label">Escolha o usuário:</label>
+                <select class="fstdropdown-select" asp-items="ViewBag.UsuarioId"></select>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary">
+        Atribuir
+    </button>
+    <div class="row mt-5 mb-5">
+        <button type="button" class="btn btn-primary mr-3">Ativar Filtro</button>
+        <button type="button" class="btn btn-primary">Selecionar todos</button>
+    </div>
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th scope="col">Rad</th>
+                <th scope="col">Status</th>
+                <th scope="col">Título</th>
+                <th scope="col">Data Abertura</th>
+                <th scope="col">UF</th>
+                <th scope="col">Classificação</th>
+                <th scope="col">Ambiente</th>
+                <th scope="col">Nome Ambiente</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Ocorrencia)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(modelItem => item.OcorrenciaId)</th>
+                    <td>@Html.DisplayFor(modelItem => item.Status.NomeStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataInicio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UF)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Classificacao.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ambiente.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NomeAmbiente)</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    @section Scripts{
+
+        <script>
+            $(document).ready(function () {
+                $('#myTable').DataTable();
+            });
+        </script>
+    }
+
+</section>

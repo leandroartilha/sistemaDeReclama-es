@@ -1,0 +1,60 @@
+﻿@model NovoRad.Models.Tarefa
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit" asp-route-ocorrenciaId="@ViewBag.OcorrenciaId" class="col">
+
+    <div class="row">
+        <h4>Nova Tarefa</h4>
+    </div>
+    <div class="row">
+        <button onclick="location.href='/'" type="button" class="btn btn-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+            </svg> Voltar ao Início
+        </button>
+    </div>
+
+    <label asp-for="TarefaId" class="control-label" hidden></label>
+    <input asp-for="TarefaId" type="text" class="form-control" hidden/>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="UsuarioId" class="control-label">Analista</label>
+                <select class="form-control input-validation-error" asp-for="UsuarioId" asp-items="ViewBag.UsuarioId"></select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="DiasPrazoId" class="control-label">Dias Prazo:</label>
+                <select class="form-control input-validation-error" asp-for="DiasPrazoId" asp-items="ViewBag.DiasPrazoId"></select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="AcaoTomada" class="control-label">Ação a ser tomada</label>
+                <input asp-for="AcaoTomada" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="DataInicio" class="control-label">Data Início</label>
+                <input asp-for="DataInicio" type="date" class="form-control" />
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+    </div>
+
+</form>
+

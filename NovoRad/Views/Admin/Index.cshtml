@@ -1,0 +1,92 @@
+﻿@model NovoRad.Models.Usuario
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main class="container py-3">
+    <section>
+        <div class="row">
+            <div class="col-12 mt-1 mb-1">
+                <h4>Console Administrativo</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+                Gestão de usuários, manutenção de tabelas e consulta de logs.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden" onclick="location.href='/Admin/ComboBox'">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-layers primary font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Combo Box</h4>
+                                    <span>Manutenção da Tabelas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden" onclick="location.href='/Usuarios'">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-hourglass danger font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Usuários</h4>
+                                    <span>Gestão de Usuários</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-layers primary font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Logs</h4>
+                                    <span>Consulta de Logs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-layers primary font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Avisos</h4>
+                                    <span>Gerenciamento das mensagens iniciais</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

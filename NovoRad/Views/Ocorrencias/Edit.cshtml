@@ -1,0 +1,323 @@
+﻿@model NovoRad.Models.Ocorrencia
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+<div height="800px" class="stepper" id="stepper2">
+    <div class="steps-container">
+        <div class="steps">
+            <div class="step" icon="fa fa-pencil-alt" id="1"></div>
+            <div class="step" icon="fa fa-pencil-alt" id="2"></div>
+            <div class="step" icon="fa fa-pencil-alt" id="3"></div>
+            <div class="step" icon="fa fa-pencil-alt" id="4"></div>
+        </div>
+    </div>
+    <div class="stepper-content-container">
+        <div class="stepper-content fade-in" stepper-label="1">
+            <div>Step 1</div>
+        </div>
+        <div class="stepper-content fade-in" stepper-label="2">
+            <div>Step 2</div>
+        </div>
+        <div class="stepper-content fade-in" stepper-label="3">
+            <div>Step 3</div>
+        </div>
+        <div class="stepper-content fade-in" stepper-label="4">
+            <div>Step 4</div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-default" id="toastSucess">Sucesso</button>
+
+<form asp-action="Edit" class="col">
+    <div class="row">
+        <h4>Tarefa</h4>
+    </div>
+
+    <div class="row">
+        <button onclick="location.href='/Ocorrencias'" type="button" class="btn btn-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+            </svg> Voltar ao Início
+        </button>
+    </div>
+    <div class="row">
+        <div>
+            <div>
+                <label asp-for="OcorrenciaId" class="control-label">ID</label>
+                <input asp-for="OcorrenciaId" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="ResponsavelId" class="control-label">Responsável</label>
+                <select class="form-control input-validation-error" asp-for="ResponsavelId" asp-items="ViewBag.ResponsavelId"></select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label">Título</label>
+                <input asp-for="Titulo" type="text" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="ClassificacaoId" class="control-label">Classificação</label>
+            <select class="form-control input-validation-error" asp-for="ClassificacaoId" asp-items="ViewBag.ClassificacaoId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="UF" class="control-label">UF</label>
+            <select asp-for="UF" class="form-control input-validation-error" id="uf" asp-items="ViewBag.UFId">
+            </select>
+
+        </div>
+        <div class="col">
+            <label asp-for="Cidade" class="control-label">Cidade</label>
+            <select asp-for="Cidade" class="form-control input-validation-error" id="cidade">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="PrioridadeId" class="control-label">Prioridade</label>
+            <select asp-for="PrioridadeId" class="form-control input-validation-error" asp-items="ViewBag.PrioridadeId">
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="AreaDemandanteId" class="control-label">Área Demandante</label>
+            <select asp-for="AreaDemandanteId" class="form-control input-validation-error" asp-items="ViewBag.AreaDemandanteId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="SeguimentoId" class="control-label">Seguimento</label>
+            <select asp-for="SeguimentoId" class="form-control input-validation-error" asp-items="ViewBag.SeguimentoId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="ProdutoId" class="control-label">Produto</label>
+            <select asp-for="ProdutoId" class="form-control input-validation-error" asp-items="ViewBag.ProdutoId">
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="AmbienteId" class="control-label">Ambiente</label>
+            <select asp-for="AmbienteId" class="form-control input-validation-error" asp-items="ViewBag.AmbienteId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="NomeAmbiente" class="control-label">Nome ambiente</label>
+            <input asp-for="NomeAmbiente" type="text" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="StatusId" class="control-label">Status</label>
+            <select asp-for="StatusId" class="form-control input-validation-error" asp-items="ViewBag.StatusId"></select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="DataInicio" class="control-label">Data Início</label>
+            <input asp-for="DataInicio" type="date" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="DataFim" class="control-label">Data Fim</label>
+            <input asp-for="DataFim" type="date" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="DataConclusao" class="control-label">Data Conclusão</label>
+            <input asp-for="DataConclusao" type="date" class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col">
+            <input asp-for="OperacaoPolicial" type="checkbox" />
+            <label asp-for="OperacaoPolicial" class="control-label">Operação Policial</label>
+        </div>
+        <div class="col">
+            <label asp-for="ValorPerda" class="control-label">Valor Perda</label>
+            <input asp-for="ValorPerda" type="text" class="form-control" readonly />
+        </div>
+        <div class="col">
+            <label asp-for="ValorRecuperado" class="control-label">Valor Recuperado</label>
+            <input asp-for="ValorRecuperado" type="text" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="DescricaoApuracao" class="control-label">Descrição Apuração</label>
+                <textarea asp-for="DescricaoApuracao" class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Gravar</button>
+        </div>
+    </div>
+</form>
+
+<ul class="nav nav-tabs mt-5" id="tabsOcorencia" role="tablist">
+
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="envolvidos-tab" data-toggle="tab" href="#envolvidos" role="tab" aria-controls="envolvidos" aria-selected="true">Envolvidos</a>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="historico-tab" data-toggle="tab" href="#historicos" role="tab" aria-controls="historicos" aria-selected="false">Histórico</a>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="anexo-tab" data-toggle="tab" href="#anexos" role="tab" aria-controls="anexos" aria-selected="false">Anexos</a>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="tarefas-tab" data-toggle="tab" href="#tarefas" role="tab" aria-controls="tarefas" aria-selected="false">Tarefas</a>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="conclusao-tab" data-toggle="tab" href="#conclusao" role="tab" aria-controls="conclusao" aria-selected="false">Conclusão</a>
+    </li>
+
+</ul>
+
+
+<div class="tab-content my-4" id="tabsOcorrenciaContent">
+
+    <div class="tab-pane fade active show" id="envolvidos" role="tabpanel" aria-labelledby="envolvidos-tab">
+        <div class="my-3">
+            @*<button class="bttn-unite bttn-sm bttn-primary mt-4" onclick="location.href='@(Url.Action("Create", "Envolvidos", new { ocorrenciaId = Model.OcorrenciaId }))'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                </svg>
+            </button>*@
+
+        </div>
+        @if (Model.Envolvido != null && Model.Envolvido.Count > 0)
+        {
+            await Html.RenderPartialAsync("~/Views/Envolvidos/Index.cshtml", Model.Envolvido);
+        }
+        else
+        {
+            <p>Nenhum envolvido cadastrado!</p>
+        }
+
+    </div>
+
+    <div class="tab-pane fade" id="historicos" role="tabpanel" aria-labelledby="historicos-tab">
+
+        <div class="my-3">
+            <a class="bttn-unite bttn-sm bttn-primary mt-4" onclick="location.href='@(Url.Action("Create", "Historico", new { ocorrenciaId = Model.OcorrenciaId }))'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                </svg>
+                Adicionar novo histórico
+            </a>
+        </div>
+        @if (Model.Historico != null
+          && Model.Historico.Count > 0)
+        {
+            await Html.RenderPartialAsync("~/Views/Historico/Index.cshtml", Model.Historico);
+        }
+    </div>
+    <div class="tab-pane fade" id="anexos" role="tabpanel" aria-labelledby="anexos-tab">
+
+        <div class="my-3">
+            <a class="btn btn-primary text-white" onclick="location.href='@(Url.Action("Create", "Anexos", new { ocorrenciaId = Model.OcorrenciaId }))'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                </svg>
+                Adicionar Anexo
+            </a>
+        </div>
+
+        @if (Model.Anexo != null
+          && Model.Anexo.Count > 0)
+        {
+            await Html.RenderPartialAsync("~/Views/Anexos/Index.cshtml", Model.Anexo);
+        }
+        else
+        {
+            <p>Sem anexos</p>
+        }
+
+    </div>
+
+    <!-- Modal -->
+
+
+    <div class="tab-pane fade" id="tarefas" role="tabpanel" aria-labelledby="tarefas-tab">
+
+        <div class="my-3">
+            <button class="bttn-unite bttn-sm bttn-primary mt-4" onclick="location.href='@(Url.Action("Create", "Tarefas", new { ocorrenciaId = Model.OcorrenciaId }))'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+                    <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
+                </svg>
+                Registrar Tarefa
+            </button>
+        </div>
+
+        @if (Model.Tarefa != null
+         && Model.Tarefa.Count > 0)
+        {
+            await Html.RenderPartialAsync("~/Views/Tarefas/Index.cshtml", Model.Tarefa);
+        }
+        else
+        {
+            <p>Nenhuma tarefa cadastrada!</p>
+        }
+    </div>
+
+    <div class="tab-pane fade" id="conclusao" role="tabpanel" aria-labelledby="conclusao-tab">
+
+        <div class="my-3">
+            <button class="bttn-unite bttn-sm bttn-primary mt-4" onclick="location.href='@(Url.Action("Create", "Conclusao", new { ocorrenciaId = Model.OcorrenciaId }))'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+                    <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
+                </svg>
+                Registrar Conclusão
+            </button>
+        </div>
+
+        @if (Model.Conclusao != null
+         && Model.Conclusao.Count > 0)
+        {
+            await Html.RenderPartialAsync("~/Views/Conclusao/Index.cshtml", Model.Conclusao);
+        }
+        else
+        {
+            <p>Nenhuma conclusão cadastrada!</p>
+        }
+
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+}
+
+
+

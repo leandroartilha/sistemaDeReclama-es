@@ -1,0 +1,12 @@
+﻿@model NovoRad.Models.Endereco
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar endereço</h1>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="EnderecoId" />
+    <input type="submit" value="Apagar" class="btn btn-danger" />
+</form>
+

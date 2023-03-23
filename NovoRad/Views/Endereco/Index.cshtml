@@ -1,0 +1,28 @@
+﻿@model IEnumerable<NovoRad.Models.Endereco>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Endereco</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Endereço</h5>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Logradouro),@Html.DisplayFor(modelItem => item.Numero)</p>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Cep)</p>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Cidade)-@Html.DisplayFor(modelItem => item.Estado)</p>
+            <td>
+                <a class="btn btn-icon text-primary" asp-controller="Endereco" asp-action="Edit" asp-route-id="@item.EnderecoId" asp-route-envolvidoId="@item.EnvolvidoId">
+                    <i class="fa fa-file-signature">Editar</i>
+                </a>
+                <a class="btn text-danger" asp-controller="Endereco" asp-action="Delete" asp-route-id="@item.EnderecoId">
+                    <i class="fas fa-trash">Apagar</i>
+                </a>
+            </td>
+        </div>
+    </div>
+}
+

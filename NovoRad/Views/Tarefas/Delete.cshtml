@@ -1,0 +1,12 @@
+﻿@model NovoRad.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar Tarefa</h1>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="TarefaId" />
+    <input type="submit" value="Apagar" class="btn btn-danger" />
+</form>

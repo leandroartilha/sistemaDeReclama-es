@@ -1,0 +1,121 @@
+﻿@model NovoRad.Models.Ocorrencia
+@inject IHttpContextAccessor _ctx
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<li>nome : @_ctx.HttpContext.Session.GetString("UserName")</li>
+<main class="container py-3">
+    <section>
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+                <h4>Bem vindo ao Novo RAD!</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden bg-primary text-white">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-layers primary font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Ocorrências</h4>
+                                    <span>Total de ocorrências cadastradas</span>
+                                </div>
+                                <div class="primary align-self-center">
+                                    <h1>@TempData["Total"]</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-hourglass danger font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Apuração</h4>
+                                    <span>Total de ocorrências em apuração</span>
+                                </div>
+                                <div class="danger align-self-center">
+                                    <h1 class="text-danger">@TempData["OcorrenciasApuracao"]</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-layers primary font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Fila</h4>
+                                    <span>Total de ocorrências em fila</span>
+                                </div>
+                                <div class="primary align-self-center">
+
+                                    <h1 class="text-warning">@TempData["OcorrenciasFila"]</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-content">
+                        <div class="card-body cleartfix">
+                            <div class="media align-items-stretch">
+                                <div class="align-self-center">
+                                    <i class="icon-layers primary font-large-2 mr-2"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Concluídos</h4>
+                                    <span>Total de ocorrências concluídas</span>
+                                </div>
+                                <div class="primary align-self-center">
+                                    <h1 class="text-success">@TempData["OcorrenciasConcluido"]</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="sweetalert2.all.min.js"></script>
+
+
+
+@if (TempData["UserName"] == null)
+{
+<script>
+    Swal.fire({
+        title: 'Atenção!',
+        text: 'Deseja Continuar?',
+        icon: 'warning',
+        confirmButtonText: 'SIM'
+    })
+</script>
+}
+
+

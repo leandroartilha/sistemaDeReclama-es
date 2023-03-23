@@ -1,0 +1,39 @@
+﻿@model NovoRad.Models.Envolvido
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Consultar CPF</h1>
+
+<form asp-action="Consulta">
+    <div class="input-group">
+        <label>Digite o CPF/CNPJ do envolvido:</label>
+        <br />
+        <input type="search" name="cpfToFind" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+    </div>
+</form>
+
+
+@*@foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Envolvido</h5>
+                <p class="card-text">Nome: @Html.DisplayFor(modelItem => item.Nome)</p>
+                <p class="card-text">CPF/CNPJ: @Html.DisplayFor(modelItem => item.CPF_CNPJ)</p>
+                <p class="card-text">Data Nascimento: @Html.DisplayFor(modelItem => item.DataNascimento)</p>
+                <p class="card-text">Tipo Envolvimento: @Html.DisplayFor(modelItem => item.TipoEnvolvimento.NomeTipoEnvolvimento)</p>
+                <p class="card-text">Nome Pai: @Html.DisplayFor(modelItem => item.NomePai)</p>
+                <p class="card-text">Nome Mãe: @Html.DisplayFor(modelItem => item.NomeMae)</p>
+                <td>
+                    <a class="btn btn-icon text-primary" asp-controller="Envolvidos" asp-action="Edit" asp-route-id="@item.EnvolvidoId" asp-route-ocorrenciaId="@item.OcorrenciaId">
+                        <i class="fa fa-file-signature">Editar</i>
+                    </a>
+                    <a class="btn text-danger" asp-controller="Envolvidos" asp-action="Delete" asp-route-id="@item.EnvolvidoId">
+                        <i class="fas fa-trash">Apagar</i>
+                    </a>
+                </td>
+            </div>
+        </div>
+    }*@

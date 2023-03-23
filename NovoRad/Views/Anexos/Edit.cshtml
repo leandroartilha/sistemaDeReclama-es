@@ -1,0 +1,41 @@
+﻿@model NovoRad.Models.Anexo
+
+@{
+    ViewData["Title"] = $"Editando {Model.NomeAnexoUpload}";
+}
+
+<h4>Editando @Model.NomeAnexoUpload</h4>
+<hr />
+
+<form asp-action="Edit" asp-route-ocorrenciaId="@ViewBag.OcorrenciaId" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="AnexoId"/>
+    <input type="hidden" asp-for="NomeAnexoUpload" />
+    <input type="hidden" asp-for="DataAnexo" />
+    <input type="hidden" asp-for="Autor" />
+    <input type="hidden" asp-for="Bytes" />
+    <input type="hidden" asp-for="ContentType" />
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label class="control-label">Anexar o novo documento:</label>
+                <input type="file" name="postedFile" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="TipoAnexoUploadId" class="control-label">Tipo Anexo:</label>
+            <select asp-for="TipoAnexoUploadId" type="text" class="form-control" asp-items="ViewBag.TipoAnexoId"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="DescricaoAnexo" class="control-label">Descrição:</label>
+            <input asp-for="DescricaoAnexo" type="text" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Gravar</button>
+</form>

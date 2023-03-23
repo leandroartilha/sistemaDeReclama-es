@@ -1,0 +1,109 @@
+﻿@model NovoRad.Models.Conclusao
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Conclusão</h1>
+
+<form asp-action="Edit" asp-route-id="@ViewBag.ConclusaoId" asp-route-ocorrenciaId="@ViewBag.OcorrenciaId" class="col">
+
+
+            <label hidden asp-for="ConclusaoId" class="control-label" ></label>
+            <input hidden type="text" class="form-control" asp-for="ConclusaoId" />
+
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="ResultadoId" class="control-label">Resultado</label>
+            <select class="form-control input-validation-error" asp-for="ResultadoId" asp-items="ViewBag.ResultadoId"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="TextoJustificativo" class="control-label">Texto Justificativo</label>
+            <input asp-for="TextoJustificativo" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <label asp-for="ConsultivoJuridico" class="control-label">Consultivo Jurídico</label>
+            <input asp-for="ConsultivoJuridico" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="col mb-1">
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="DesligamentoSJC" />
+                    Desligamento S/JC
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="DesligamentoCJC" />
+                    Desligamento C/JC
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AdvertenciaEscrita" />
+                    Advertência Escrita
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AdvertenciaVerbal" />
+                    Advertência Verbal
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AdvertencuaTerceiro" />
+                    AdvertênciaTerceiro
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AfastamentoTerceiro" />
+                    Afastamento Terceiro
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Suspensao" />
+                    Suspensão
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NA" />
+                    N/A
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Gravar</button>
+        </div>
+    </div>
+</form>
+

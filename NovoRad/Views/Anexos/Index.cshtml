@@ -1,0 +1,55 @@
+﻿@model IEnumerable<NovoRad.Models.Anexo>
+
+<table class="table table-hover alert-primary" style="border-radius: 1rem">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Nome do Anexo
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+                Autor
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeAnexoUpload)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAnexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Autor)
+                </td>
+                <td class="d-flex justify-content-between align-content-center">
+                    @using (Html.BeginForm("DownloadFile", "Anexos", FormMethod.Post))
+                    {
+                        <input type="hidden" name="FileId" value="@item.AnexoId" multiple />
+                        <button class="btn btn-icon text-success" type="submit">
+                            <i class="fa fa-file-download"></i>
+                        </button>
+                    }
+                    <a class="btn btn-icon text-primary" asp-controller="Anexos" asp-action="Edit" asp-route-id="@item.AnexoId" asp-route-ocorrenciaId="@item.OcorrenciaId">
+                        <i class="fa fa-file-signature">Editar</i>
+                    </a>
+                    <a class="btn btn-icon text-danger" asp-controller="Anexos" asp-action="Delete" asp-route-id="@item.AnexoId" asp-route-ocorrenciaId="@item.OcorrenciaId">
+                        <i class="fa fa-trash">Excluir</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

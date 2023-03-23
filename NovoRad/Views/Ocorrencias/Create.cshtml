@@ -1,0 +1,142 @@
+﻿@model NovoRad.Models.Ocorrencia
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" class="col">
+    <div class="row">
+        <h4>Nova Ocorrência</h4>
+    </div>
+    <div class="row">
+        <button onclick="location.href='/'" type="button" class="btn btn-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+            </svg> Voltar ao Início
+        </button>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="ResponsavelId" class="control-label">Responsável</label>
+                <select class="form-control input-validation-error" asp-for="ResponsavelId" asp-items="ViewBag.ResponsavelId"></select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label">Título</label>
+                <input asp-for="Titulo" type="text" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="ClassificacaoId" class="control-label">Classificação</label>
+            <select class="form-control input-validation-error" asp-for="ClassificacaoId" asp-items="ViewBag.ClassificacaoId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="UF" class="control-label">UF</label>
+            <select asp-for="UF" class="form-control input-validation-error" id="uf">
+                <option value="UF"></option>
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="Cidade" class="control-label">Cidade</label>
+            <select asp-for="Cidade" class="form-control input-validation-error" id="cidade">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="PrioridadeId" class="control-label">Prioridade</label>
+            <select asp-for="PrioridadeId" class="form-control input-validation-error" asp-items="ViewBag.PrioridadeId">
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="AreaDemandanteId" class="control-label">Área Demandante</label>
+            <select asp-for="AreaDemandanteId" class="form-control input-validation-error" asp-items="ViewBag.AreaDemandanteId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="SeguimentoId" class="control-label">Seguimento</label>
+            <select asp-for="SeguimentoId" class="form-control input-validation-error" asp-items="ViewBag.SeguimentoId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="ProdutoId" class="control-label">Produto</label>
+            <select asp-for="ProdutoId" class="form-control input-validation-error" asp-items="ViewBag.ProdutoId">
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="AmbienteId" class="control-label">Ambiente</label>
+            <select asp-for="AmbienteId" class="form-control input-validation-error" asp-items="ViewBag.AmbienteId">
+            </select>
+        </div>
+        <div class="col">
+            <label asp-for="NomeAmbiente" class="control-label">Nome ambiente</label>
+            <input asp-for="NomeAmbiente" type="text" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="DataInicio" class="control-label">Data Início</label>
+            <input asp-for="DataInicio" type="date" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="DataFim" class="control-label">Data Fim</label>
+            <input asp-for="DataFim" type="date" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="DataConclusao" class="control-label">Data Conclusão</label>
+            <input asp-for="DataConclusao" type="date" class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col">
+            <input asp-for="OperacaoPolicial" type="checkbox" />
+            <label asp-for="OperacaoPolicial" class="control-label">Operação Policial</label>
+        </div>
+        @*<div class="col">
+            <label asp-for="ValorPerda" class="control-label">Valor Perda</label>
+            <input asp-for="ValorPerda" type="text" class="form-control" readonly />
+        </div>
+        <div class="col">
+            <label asp-for="ValorRecuperado" class="control-label">Valor Recuperado</label>
+            <input asp-for="ValorRecuperado" type="text" class="form-control" readonly />
+        </div>*@
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="DescricaoApuracao" class="control-label">Descrição Apuração</label>
+                <textarea asp-for="DescricaoApuracao" class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Gravar</button>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    
+    <script src="~/js/fstdropdown.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

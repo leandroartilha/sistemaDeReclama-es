@@ -1,0 +1,26 @@
+﻿@model IEnumerable<NovoRad.Models.Historico>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="styled-table w-100">
+    <thead class="styled-table-thead">
+        <tr>
+            <th>Data</th>
+            <th>Autor</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Data)</td>
+                <td>@Html.DisplayFor(modelItem => item.Autor)</td>
+                <td>@Html.DisplayFor(modelItem => item.Acao)</td>
+            </tr>
+            }
+    </tbody>
+</table>

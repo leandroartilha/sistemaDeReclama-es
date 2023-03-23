@@ -1,0 +1,12 @@
+﻿@model NovoRad.Models.Conclusao
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar Conclusão</h1>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ConclusaoId" />
+    <input type="submit" value="Apagar" class="btn btn-danger" />
+</form>

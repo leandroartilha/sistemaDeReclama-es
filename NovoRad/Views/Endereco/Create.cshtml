@@ -1,0 +1,72 @@
+﻿@model NovoRad.Models.Endereco
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-action="Create" asp-route-envolvidoId="@ViewBag.EnvolvidoId" class="col">
+
+    <div class="row">
+        <h4>Novo Endereço</h4>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Logradouro" class="control-label">Logradouro</label>
+                <input asp-for="Logradouro" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label">Número</label>
+                <input asp-for="Numero" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Complemento" class="control-label">Complemento</label>
+                <input asp-for="Complemento" type="text" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Cep" class="control-label">CEP</label>
+                <input asp-for="Cep" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Bairro" class="control-label">Bairro</label>
+                <input asp-for="Bairro" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label">UF</label>
+                <select class="form-control input-validation-error" asp-for="Estado" id="uf"></select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Cidade" class="control-label">Cidade</label>
+                <select class="form-control input-validation-error" asp-for="Cidade" id="cidade"></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

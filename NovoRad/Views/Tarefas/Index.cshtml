@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NovoRad.Models.Tarefa>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table table-hover alert-primary" style="border-radius: 1rem" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Data Início</th>
+            <th scope="col">Demandante</th>
+            <th scope="col">Dias Prazo</th>
+            <th scope="col">Témino</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(modelItem => item.TarefaId)</th>
+                <td>@Html.DisplayFor(modelItem => item.DataInicio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Usuario.NomeUsuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.DiasPrazo.NomeDiasPrazo)</td>
+                <td></td>
+                <td>
+                    <a class="btn btn-icon text-primary" asp-controller="Tarefas" asp-action="Edit" asp-route-id="@item.TarefaId" asp-route-ocorrenciaId="@item.OcorrenciaId">
+                        <i class="fa fa-file-signature">Editar</i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn text-danger" asp-controller="Tarefas" asp-action="Delete" asp-route-id="@item.TarefaId">
+                        <i class="fas fa-trash">Apagar</i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

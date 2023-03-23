@@ -1,0 +1,23 @@
+﻿@model NovoRad.Models.Historico
+@{
+    ViewData["Title"] = $"Adicionando Histórico";
+}
+
+<h1>Criar Histórico</h1>
+
+<form asp-action="Create" asp-route-ocorrenciaId="@ViewBag.OcorrenciaId"class="col">
+
+    <div class="row mt-3">
+        <div class="col">
+            <label asp-for="Acao" class="control-label">Ação</label>
+            <input asp-for="Acao" type="text" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Gravar</button>
+        </div>
+    </div>
+</form>
+
